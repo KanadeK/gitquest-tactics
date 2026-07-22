@@ -1,0 +1,17 @@
+[
+  {
+    "command": "commit",
+    "expected": "A commit requires a message.",
+    "stateChanges": false
+  },
+  {
+    "command": "branch 4bad",
+    "expected": "Branch names start with a letter and use letters, digits, /, _ or -.",
+    "stateChanges": false
+  },
+  {
+    "command": "merge main",
+    "expected": "Cannot merge a branch into itself.",
+    "stateChanges": false
+  }
+]
