@@ -1,0 +1,266 @@
+:root {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #e6edf3;
+  background: #10151c;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+.app-shell {
+  max-width: 1240px;
+  margin: auto;
+  padding: 28px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: end;
+  border-bottom: 1px solid #30404f;
+  padding-bottom: 24px;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  max-width: 780px;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+h2 {
+  margin: 4px 0 10px;
+}
+p {
+  line-height: 1.55;
+}
+.eyebrow {
+  color: #89dceb;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  margin: 0;
+}
+.status {
+  color: #b7c3cf;
+  white-space: nowrap;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 540px;
+  border-bottom: 1px solid #30404f;
+}
+nav {
+  padding: 28px 20px 28px 0;
+  border-right: 1px solid #30404f;
+}
+nav h2 {
+  font-size: 1rem;
+}
+.mission {
+  background: transparent;
+  color: #b7c3cf;
+  border: 0;
+  display: flex;
+  gap: 12px;
+  padding: 9px 5px;
+  text-align: left;
+  width: 100%;
+  border-left: 2px solid transparent;
+}
+.mission:hover,
+.mission.current {
+  color: #fff;
+  border-left-color: #f6c177;
+  background: #18212b;
+}
+.mission span {
+  color: #89dceb;
+}
+.board {
+  padding: 34px 0 34px 34px;
+}
+.brief {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: start;
+}
+.brief h2 {
+  font-family: Georgia, serif;
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.result {
+  border: 1px solid #536574;
+  color: #cbd5df;
+  padding: 12px;
+  min-width: 130px;
+}
+.result small {
+  display: block;
+  margin-top: 6px;
+  color: #8fa2b2;
+}
+.result.complete {
+  border-color: #a6e3a1;
+  color: #a6e3a1;
+}
+.graph {
+  width: 100%;
+  min-height: 230px;
+  background: #151d26;
+  border: 1px solid #30404f;
+  margin: 18px 0;
+}
+.edge {
+  stroke: #657d91;
+  stroke-width: 2;
+}
+.node {
+  fill: #2d3b49;
+  stroke: #89dceb;
+  stroke-width: 2;
+}
+.node.head {
+  fill: #f6c177;
+  stroke: #fff;
+}
+svg text {
+  fill: #e6edf3;
+  font-size: 12px;
+}
+.message {
+  fill: #9db0c1;
+  font-size: 10px;
+}
+.branch {
+  fill: #89dceb;
+  font-size: 11px;
+}
+.branch.active {
+  fill: #f6c177;
+}
+.feedback {
+  min-height: 48px;
+  background: #17212c;
+  padding: 12px;
+  border-left: 3px solid #89dceb;
+}
+.command-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+input,
+textarea {
+  background: #0d1218;
+  color: #edf4f7;
+  border: 1px solid #536574;
+  padding: 11px;
+  min-width: 0;
+}
+button {
+  background: #263544;
+  color: #e6edf3;
+  border: 1px solid #536574;
+  padding: 11px 14px;
+}
+button:hover {
+  background: #34475a;
+}
+button.primary {
+  background: #d9804f;
+  color: #111;
+  border-color: #f6c177;
+  font-weight: 700;
+}
+.allowed {
+  margin-top: 16px;
+  color: #b7c3cf;
+}
+code {
+  margin-left: 8px;
+  color: #f6c177;
+}
+.editor {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 28px;
+  align-items: start;
+  padding: 28px 0;
+}
+textarea {
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+}
+.editor-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  grid-column: 2;
+}
+footer {
+  color: #8fa2b2;
+  border-top: 1px solid #30404f;
+  padding: 24px 0;
+  font-size: 0.85rem;
+}
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 16px;
+  }
+  header,
+  .brief {
+    display: block;
+  }
+  .status {
+    white-space: normal;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    border-right: 0;
+    border-bottom: 1px solid #30404f;
+    padding-right: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  nav h2 {
+    grid-column: 1 / -1;
+  }
+  .board {
+    padding-left: 0;
+  }
+  .command-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .command-row label,
+  .command-row input {
+    grid-column: 1 / -1;
+  }
+  .editor {
+    grid-template-columns: 1fr;
+  }
+  .editor-actions {
+    grid-column: 1;
+  }
+}
