@@ -4,7 +4,7 @@ export default defineConfig({
   use: { baseURL: "http://127.0.0.1:4187", trace: "retain-on-failure" },
   webServer: {
     command:
-      "npm.cmd run build && npm.cmd exec vite preview -- --host 127.0.0.1 --port 4187",
+      "npm run build && npm exec vite preview -- --host 127.0.0.1 --port 4187",
     port: 4187,
     reuseExistingServer: !process.env.CI,
   },
