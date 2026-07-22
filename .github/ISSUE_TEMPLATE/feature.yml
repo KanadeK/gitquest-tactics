@@ -1,0 +1,6 @@
+name: Feature request
+description: Propose a learner-facing improvement
+body:
+  - type: textarea
+    attributes: { label: Problem and proposed outcome }
+    validations: { required: true }

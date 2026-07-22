@@ -1,0 +1,23 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          {
+            node-version: 24,
+            cache: npm,
+            cache-dependency-path: package-lock.json,
+          }
+      - run: npm ci
+      - run: npm run lint && npm run format:check && npm run typecheck && npm run test:coverage && npm run test:e2e && npm run build && npm run package
+      - name: Create GitHub release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release create "${{ github.ref_name }}" dist-release/* --verify-tag --generate-notes
