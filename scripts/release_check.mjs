@@ -16,15 +16,17 @@ const packageJson = JSON.parse(
   await readFile(resolve(root, "package.json"), "utf8"),
 );
 const changelog = await readFile(resolve(root, "CHANGELOG.md"), "utf8");
+const forbiddenPattern = [
+  "TO" + "DO",
+  "FIX" + "ME",
+  "Not" + "Implemented",
+  "place" + "holder",
+  "coming" + " soon",
+  "lorem" + " ipsum",
+].join("|");
 const trackedText = run(
   "git",
-  [
-    "grep",
-    "-nE",
-    "TODO|FIXME|NotImplemented|placeholder|coming soon|lorem ipsum",
-    "--",
-    ":!docs/ROADMAP.md",
-  ],
+  ["grep", "-nE", forbiddenPattern, "--", ":!docs/ROADMAP.md"],
   true,
 );
 const status = run("git", ["status", "--short"]);

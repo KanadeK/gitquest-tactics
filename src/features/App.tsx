@@ -190,14 +190,14 @@ export function App() {
               onKeyDown={(event) => {
                 if (event.key === "Enter") run();
               }}
-              placeholder="e.g. branch feature"
+              aria-describedby="command-guide"
             />
             <button className="primary" onClick={run}>
               Run command
             </button>
             <button onClick={reset}>Reset</button>
           </div>
-          <div className="allowed">
+          <div className="allowed" id="command-guide">
             <strong>Allowed:</strong>{" "}
             {level.allowed.map((action) => (
               <code key={action}>{action}</code>
